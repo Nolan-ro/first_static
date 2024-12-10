@@ -1,0 +1,49 @@
+/* Resetting Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Font Stack */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Viewport Meta Tag (add this to your HTML <head>) */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
+/* Styling */
+html, body {
+  background-color: #f0f0f0; /* Fallback background color for the entire page */
+  background-image: url('homeCat.jpeg'); /* Add your background image here */
+  background-size: cover; /* This makes the image cover the entire page */
+  background-position: center; /* This centers the image */
+  background-repeat: no-repeat; /* This prevents the image from repeating */
+  height: 100%; /* Ensure the background image covers the full height */
+}
+
+/* Main Content Styling */
+main {
+  margin: auto;
+  width: 90%; /* Adjusted width for better mobile experience */
+  max-width: 600px; /* Example maximum width to prevent content from stretching too wide on large screens */
+  padding: 20px;
+  background-color: #ffffff; /* Background color for the main content area */
+  border-radius: 10px; /* Example border radius to add some visual appeal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example box shadow for a subtle depth effect */
+}
+
+/* Heading Styling */
+main > h1 {
+  text-align: center;
+  font-size: 3.5em;
+  color: #333333; /* Text color for the main heading */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  main {
+    width: 95%; /* Adjust width for smaller screens */
+  }
+}

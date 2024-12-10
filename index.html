@@ -2,11 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GFG</title>
+    <title>Gascalc</title>
+    <style>
+        /* Resetting Defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Font Stack */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            background-image: url('homeCat.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+
+        /* Main Content Styling */
+        form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            margin: 20px 0;
+        }
+
+        img {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+            color: red; /* Change this to red */
+        }
+
+        /* Header Styling */
+        h2 {
+            color: white;
+            font-size: 2.5em;
+        }
+    </style>
+    <script>
+        function calc() {
+            var miles = parseFloat(document.getElementById('miles').value);
+            var mpg = parseFloat(document.getElementById('mpg').value);
+            var gp = parseFloat(document.getElementById('gp').value);
+            var people = parseFloat(document.getElementById('people').value);
+
+            if (isNaN(miles) || isNaN(mpg) || isNaN(gp) || isNaN(people) || miles <= 0 || mpg <= 0 || gp <= 0 || people <= 0) {
+                document.getElementById('result').innerHTML = 'Please enter valid positive numbers.';
+                return;
+            }
+
+            var result = ((miles / mpg) * gp) / people;
+            document.getElementById('result').innerHTML = 'Each person owes: $' + result.toFixed(2);
+        }
+    </script>
 </head>
 <body>
-    <h1>Hello World this is my first web page.</h1>
+
+<h2>Gas Calculator</h2>
+
+<form>
+    <label for="miles">Miles driven:        </label>
+    <input type="number" id="miles" name="miles" required><br><br>
+    
+    <label for="mpg">MPG of car:          </label>
+    <input type="number" id="mpg" name="mpg" required><br><br>
+    
+    <label for="gp">Gas price per gallon:</label>
+    <input type="number" id="gp" name="gp" required><br><br>
+    
+    <label for="people">Number of people:    </label>
+    <input type="number" id="people" name="people" required><br><br>
+    
+    <button type="button" onclick="calc()">Calculate</button>
+
+    <!-- Result is now inside the form -->
+    <p id="result"></p>
+</form>
+
 </body>
 </html>
